@@ -2,7 +2,7 @@
   "name": "botrant",
   "version": "1.0.0",
   "description": "Twitter bot",
-  "main": "index.js",
+  "main": "bot.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,5 +12,8 @@
   },
   "author": "Vikas Swami",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/vikasbswami/botrant#readme"
+  "homepage": "https://bitbucket.org/vikasbswami/botrant#readme",
+  "dependencies": {
+    "twit": "^2.2.9"
+  }
 }
