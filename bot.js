@@ -2,6 +2,7 @@
 var Twit = require('twit');
 var config = require('./config');
 var T = new Twit(config);
+require( "console-stamp" )( console, { pattern : "dd/mm/yyyy HH:MM:ss.l" } );
 
 var getParams = {
   q: 'india OR rivers',
@@ -18,10 +19,13 @@ tweetIt();
 setInterval(tweetIt, 1000*60*5);
 
 function gotData (err, data, response) {
+  if (err) {
+    console.error("Getting data failed!");
+  }
   var tweets = data.statuses;
   var rTweet = randIndex(tweets)
-  	if(typeof rTweet != 'undefined')
-  	{
+
+    if(typeof rTweet != 'undefined') {
   		var targetId = rTweet.user.id_str;
       var targetScreenName = rTweet.user.screen_name;
 
@@ -32,9 +36,11 @@ function gotData (err, data, response) {
   		T.post('statuses/update', postParams, postedData);
 
       function postedData (err, data, response) {
-        console.log(data);
-      }
-  	}
+        if (err) {
+          console.error("Posting data failed!");
+        }
+  	  }
+    }
 }
 
 function randIndex (arr) {

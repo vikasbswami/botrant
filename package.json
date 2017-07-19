@@ -14,6 +14,7 @@
   "license": "ISC",
   "homepage": "https://bitbucket.org/vikasbswami/botrant#readme",
   "dependencies": {
+    "console-stamp": "^0.2.5",
     "twit": "^2.2.9"
   }
 }
